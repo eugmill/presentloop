@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :presentations do
+    resources :slides
+  end
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
