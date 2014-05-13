@@ -34,7 +34,7 @@ class PresentationsController < ApplicationController
 
     respond_to do |format|
       if @presentation.save
-        format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
+        format.html { redirect_to edit_presentation_path(@presentation), notice: 'Presentation was successfully created.' }
         format.json { render :show, status: :created, location: @presentation }
       else
         format.html { render :new }

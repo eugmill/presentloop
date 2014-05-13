@@ -29,7 +29,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to @slide.presentation, notice: 'Slide was successfully created.' }
+        format.html { redirect_to edit_presentation_path(@slide.presentation)}
         format.json { render :show, status: :created, location: @slide }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class SlidesController < ApplicationController
     presentation = @slide.presentation
     respond_to do |format|
       if @slide.update(slide_params)
-        format.html { redirect_to presentation, notice: 'Slide was successfully updated.' }
+        format.html { redirect_to edit_presentation_path(presentation)}
         format.json { render :show, status: :ok, location: @slide }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SlidesController < ApplicationController
     presentation = @slide.presentation
     @slide.destroy
     respond_to do |format|
-      format.html { redirect_to presentation, notice: 'Slide was successfully destroyed.' }
+      format.html { redirect_to edit_presentation_path(presentation), notice: 'Slide was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @slide.title %>
-</p>
+</h1>
 
 <p>
-  <strong>Content:</strong>
   <%= @slide.content %>
 </p>
-
+<br><hr>
+<span class = "left">
+<% if @slide.get_previous_slide %>
+<%= link_to "Previous Slide ", "/presentations/#{@slide.presentation.id}/slides/#{@slide.get_previous_slide.id}" %>
+<% end %>
+</span>
+<span class = "right" style="float:right">
 <% if @slide.get_next_slide %>
 <%= link_to "Next Slide", "/presentations/#{@slide.presentation.id}/slides/#{@slide.get_next_slide.id}" %>
 <% end %>
-<br>
-<% if @slide.get_previous_slide %>
-<%= link_to "Previous Slide", "/presentations/#{@slide.presentation.id}/slides/#{@slide.get_previous_slide.id}" %>
-<% end %>
+</span>
+
