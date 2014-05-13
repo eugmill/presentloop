@@ -14,9 +14,8 @@
       <tr>
         <td><%= slide.title %></td>
         <td><%= slide.content %></td>
-        <td><%= link_to 'Show', slide %></td>
-        <td><%= link_to 'Edit', edit_slide_path(slide) %></td>
-        <td><%= link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', "/presentations/#{slide.presentation.id}/slides/#{slide.id}/edit" %></td>
+        <td>Destroy Link</td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Slide', new_slide_path %>
+<%= link_to 'New Slide', new_presentation_slide_path %>

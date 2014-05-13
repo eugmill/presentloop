@@ -25,10 +25,11 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @slide = Slide.new(slide_params)
+    @slide.presentation = Presentation.find(params["presentation_id"])
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to @slide, notice: 'Slide was successfully created.' }
+        format.html { redirect_to @slide.presentation, notice: 'Slide was successfully created.' }
         format.json { render :show, status: :created, location: @slide }
       else
         format.html { render :new }
