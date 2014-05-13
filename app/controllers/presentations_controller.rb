@@ -10,7 +10,11 @@ class PresentationsController < ApplicationController
   # GET /presentations/1
   # GET /presentations/1.json
   def show
-    @slides = @presentation.slides
+    if @presentation.slides.count > 0
+      redirect_to "/presentations/#{@presentation.id}/slides/#{@presentation.slides.first.id}"
+    else
+      render 'error'
+    end
   end
 
   # GET /presentations/new
@@ -20,6 +24,7 @@ class PresentationsController < ApplicationController
 
   # GET /presentations/1/edit
   def edit
+    @slides = @presentation.slides
   end
 
   # POST /presentations

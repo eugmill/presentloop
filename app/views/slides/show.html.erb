@@ -10,5 +10,10 @@
   <%= @slide.content %>
 </p>
 
-<%= link_to 'Edit', edit_presentation_slide_path(@slide) %> |
-<%= link_to 'Back', presentation_slides_path %>
+<% if @slide.get_next_slide %>
+<%= link_to "Next Slide", "/presentations/#{@slide.presentation.id}/slides/#{@slide.get_next_slide.id}" %>
+<% end %>
+<br>
+<% if @slide.get_previous_slide %>
+<%= link_to "Previous Slide", "/presentations/#{@slide.presentation.id}/slides/#{@slide.get_previous_slide.id}" %>
+<% end %>

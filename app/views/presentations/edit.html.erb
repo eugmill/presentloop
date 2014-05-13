@@ -4,3 +4,7 @@
 
 <%= link_to 'Show', @presentation %> |
 <%= link_to 'Back', presentations_path %>
+
+<%= render 'slides/list_slides' %>
+
+<%= link_to 'New Slide', new_presentation_slide_path(@presentation) %>

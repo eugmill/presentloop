@@ -13,10 +13,13 @@
       <td><%= slide.title %></td>
       <td><%= slide.content %></td>
       <td><%= link_to 'Edit', "/presentations/#{slide.presentation.id}/slides/#{slide.id}/edit" %></td>
-      <td><%= link_to 'Destroy', %></td>
+      <td><%= link_to 'Destroy',"/presentations/#{slide.presentation.id}/slides/#{slide.id}" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
     </tbody>
 </table>
 
 <br>
+
+
+ 

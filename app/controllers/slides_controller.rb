@@ -41,9 +41,10 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1
   # PATCH/PUT /slides/1.json
   def update
+    presentation = @slide.presentation
     respond_to do |format|
       if @slide.update(slide_params)
-        format.html { redirect_to @slide, notice: 'Slide was successfully updated.' }
+        format.html { redirect_to presentation, notice: 'Slide was successfully updated.' }
         format.json { render :show, status: :ok, location: @slide }
       else
         format.html { render :edit }
@@ -52,12 +53,11 @@ class SlidesController < ApplicationController
     end
   end
 
-  # DELETE /slides/1
-  # DELETE /slides/1.json
   def destroy
+    presentation = @slide.presentation
     @slide.destroy
     respond_to do |format|
-      format.html { redirect_to slides_url, notice: 'Slide was successfully destroyed.' }
+      format.html { redirect_to presentation, notice: 'Slide was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
